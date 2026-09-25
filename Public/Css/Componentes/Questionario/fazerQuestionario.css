@@ -1,0 +1,261 @@
+#modalFazerQuestionario {
+    width: 72vw;
+    max-width: 1120px;
+    min-width: 760px;
+    height: 88vh;
+}
+
+#modalFazerQuestionario .areaModal {
+    flex: 1;
+    background-color: var(--cor-branco);
+    padding: 22px 26px 0;
+    overflow-y: auto;
+}
+
+.formularioFazerQuestionario {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    min-height: 100%;
+}
+
+.cabecalhoFazerQuestionario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cabecalhoFazerQuestionario h2 {
+    margin: 0;
+    color: var(--cor-fundo-escuro);
+    font-size: 1.4rem;
+}
+
+.cabecalhoFazerQuestionario p {
+    margin: 0;
+    color: var(--cor-texto);
+    line-height: 1.4;
+}
+
+.etapaFazerQuestionario {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 32px;
+    padding: 0 12px;
+    border-radius: 8px;
+    background-color: #F8F9FB;
+    color: var(--cor-fundo-escuro);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.areaFazerQuestionario {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.listaFazerQuestionario {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 8px;
+}
+
+.itemFazerQuestionario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 8px;
+    background-color: #F8F9FB;
+}
+
+.cabecalhoQuestaoFazerQuestionario {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.numeroQuestaoFazerQuestionario {
+    display: inline-flex;
+    flex: 0 0 32px;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-branco);
+    font-weight: 700;
+}
+
+.textoQuestaoFazerQuestionario {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.textoQuestaoFazerQuestionario p {
+    margin: 0;
+    color: var(--cor-fundo-escuro);
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.textoQuestaoFazerQuestionario small {
+    color: var(--cor-texto);
+}
+
+.escalaFazerQuestionario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(47, 60, 84, 0.12);
+    border-radius: 10px;
+    background-color: white;
+}
+
+.opcaoEscalaFazerQuestionario {
+    position: relative;
+    flex: 1 1 92px;
+    min-width: 92px;
+    cursor: pointer;
+}
+
+.opcaoEscalaFazerQuestionario input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.opcaoEscalaFazerQuestionario span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-height: 58px;
+    border: 2px solid #D7DEEA;
+    border-radius: 8px;
+    background-color: #F8FAFD;
+    color: var(--cor-fundo-escuro);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.opcaoEscalaFazerQuestionario strong {
+    font-size: 16px;
+    line-height: 1;
+}
+
+.opcaoEscalaFazerQuestionario small {
+    max-width: 100%;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.15;
+    text-align: center;
+    white-space: normal;
+}
+
+.opcaoEscalaFazerQuestionario input:checked + span {
+    border-color: var(--cor-fundo-escuro);
+    background-color: var(--cor-fundo-escuro);
+    color: white;
+    box-shadow: 0 8px 18px rgba(47, 60, 84, 0.18);
+    transform: translateY(-1px);
+}
+
+.opcaoEscalaFazerQuestionario:hover span {
+    border-color: var(--cor-fundo-escuro);
+    background-color: #EEF3FB;
+}
+
+.opcaoEscalaFazerQuestionario input:checked:hover + span {
+    background-color: var(--cor-fundo-escuro);
+}
+
+.areaBotoesFazerQuestionario {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 0 24px;
+    background-color: var(--cor-branco);
+}
+
+.btnCancelarFazerQuestionario,
+.btnVoltarFazerQuestionario,
+.btnAvancarFazerQuestionario,
+.btnSalvarFazerQuestionario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 35px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btnCancelarFazerQuestionario,
+.btnVoltarFazerQuestionario {
+    background: transparent;
+    border: 2px solid var(--cor-fundo-escuro);
+    color: var(--cor-fundo-escuro);
+}
+
+.btnCancelarFazerQuestionario:hover,
+.btnVoltarFazerQuestionario:hover {
+    background: #f5f6f8;
+}
+
+.btnAvancarFazerQuestionario,
+.btnSalvarFazerQuestionario {
+    border: 2px solid var(--cor-fundo-escuro);
+    background: var(--cor-fundo-escuro);
+    color: white;
+}
+
+.btnAvancarFazerQuestionario:hover,
+.btnSalvarFazerQuestionario:hover {
+    opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+    #modalFazerQuestionario {
+        width: 95vw;
+        min-width: 0;
+    }
+
+    .areaBotoesFazerQuestionario {
+        gap: 8px;
+    }
+
+    .btnCancelarFazerQuestionario,
+    .btnVoltarFazerQuestionario,
+    .btnAvancarFazerQuestionario,
+    .btnSalvarFazerQuestionario {
+        width: 50%;
+        height: 42px;
+        font-size: 14px;
+    }
+
+    .opcaoEscalaFazerQuestionario {
+        flex-basis: 30%;
+        min-width: 0;
+    }
+}

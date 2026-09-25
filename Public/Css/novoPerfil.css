@@ -1,0 +1,292 @@
+.equipeBtnOpen {
+    margin: 50px;
+    padding: 12px 25px;
+}
+
+.equipeOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .65);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    display: none;
+    padding: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 104;
+}
+
+.equipeModalPerfilStaff {
+    width: 60%;
+    max-width: 1200px;
+    height: auto;
+    max-height: 92vh;
+    margin: auto;
+    background: var(--cor-fundo-escuro);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+
+.equipeModalStaff {
+    background-color: var(--cor-fundo-claro);
+    border-radius: 0 0 10px 10px;
+    padding: 1rem;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.equipeModalHeaderStaff {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.equipeTitleStaff {
+    color: var(--cor-fundo-claro);
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+.equipeCloseBtnStaff {
+    background: none;
+    border: none;
+    color: var(--cor-fundo-claro);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.equipeModalBody {
+    padding: 15px;
+    height: 94vh;
+}
+
+
+
+.equipeTopRow {
+    display: flex;
+    gap: 16px;
+}
+
+.equipeField {
+    flex: 1;
+}
+
+.equipeField label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--cor-fundo-escuro);
+    font-size: 22px;
+}
+
+.equipeField input,
+.equipeField select {
+    width: 100%;
+    height: 50px;
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.equipeCaixa {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    position: relative;
+
+}
+
+.equipeCaixa input[type="color"] {
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+}
+
+.equipePaletaCores {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 8px;
+    background-color: var(--cor-fundo-claro);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+}
+
+.equipeCaixa.equipePaletaCoresAberta .equipePaletaCores {
+    display: flex;
+}
+
+.equipeCampoSelecaoCor,
+.equipeCampoCodigoCor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.equipeCampoCodigoCor input {
+    width: 90px;
+    padding: 6px 8px;
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 4px;
+}
+
+#meuBotao {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #ff0000;
+    /* Cor inicial */
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.equipeColorSelector {
+    display: flex;
+    gap: 10px;
+    background-color: red;
+}
+
+#colorPreview {
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    background: #F4D000;
+    margin-top: 12px;
+}
+
+.equipeTitlePrimary {
+    /* margin: 20px 0; */
+    color: #33415d;
+    padding: 10px;
+}
+
+.equipePermissionBox {
+    background: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    color: var(--cor-fundo-escuro);
+    border: 1px solid var(--cor-borda-inputs);
+    padding: 10px;
+    height: auto;
+}
+
+.equipeAreaPerfils {
+    width: 90%;
+    flex-direction: column;
+}
+
+.equipeSelectAll {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.equipeGridPermissoes {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.equipeGridPermissoesGerenciador {
+    display: flex;
+    justify-content: space-between;
+}
+
+.equipeGridPermissoes label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.equipeSection h3 {
+    margin: 10px;
+}
+
+.equipeFooterButtons {
+    margin-top: 25px;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.equipeCancelBtn {
+    padding: 12px 30px;
+    background: white;
+    border: 2px solid #33415d;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.equipeSaveBtn {
+    padding: 12px 30px;
+    background: #33415d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 920px) {
+    .equipeModalPerfilStaff {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .equipeModalPerfilStaff {
+        width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .equipeModalStaff {
+        border-radius: 0;
+    }
+
+    .equipeTopRow {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .equipeGridPermissoes {
+        grid-template-columns: 1fr;
+    }
+
+    .equipeFooterButtons {
+        flex-direction: column;
+    }
+
+    .equipeCancelBtn,
+    .equipeSaveBtn {
+        width: 100%;
+    }
+
+    .equipeOverlay {
+        padding: 0;
+    }
+}

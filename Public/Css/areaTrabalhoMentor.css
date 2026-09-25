@@ -1,0 +1,178 @@
+.areaMaiorATM{
+    display: flex;
+    flex-direction: row;
+}
+.areaATM{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: ; */
+    width: 50%;
+    height: 50%;
+    /* gap: 10px; */
+    /* padding: 0.6rem 2rem; */
+    gap: 0.5rem;
+
+}
+.areaMentortiasAndamentoATM{
+    /* margin-top: 20px; */
+    /* width: 35.6vw; */
+    height: 100%;
+    /* background-color: red; */
+    /* border: solid 3px var(--cor-fundo-escuro); */
+    border-radius: 10px;
+    flex: 1;
+}
+
+
+.areaHistoricoReunioesATM{
+    /* margin-top: 20px; */
+    /* width: 35.6vw; */
+    height: 100%;
+    /* background-color: red; */
+    /* border: solid 3px var(--cor-fundo-escuro); */
+    border-radius: 10px;
+    flex: 1;
+}
+.nomeHeaderHistoricoReunioesATM{
+    padding:0px 20px;
+    font-size: 18px;
+
+}
+.containerTabelaATM{
+    height: calc(100% - 41px);
+    padding: 1rem;
+}
+.containerTabelaATMDois{
+    height: 36vh;
+}
+.tabelaATM{
+    min-width: 0;
+}
+.linhaTabelaCorpoATM{
+    display: flex;
+}
+.linhaTabelaCabecalhoATM{
+    padding: 5rem;
+}
+.imgHistoricoReunioesATM{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 2px solid var(--cor-fundo-escuro);
+    
+}
+.nomeHisoricoReunioesATM{
+    width: 100%;
+}
+.imgTabelaATM{
+    display: flex;
+    padding: 0rem 1rem;
+}
+.itemTabelaATM1{
+    width: 10%;
+}
+.itemTabelaATM2{
+    width: 35%;
+}
+.itemTabelaATM3{
+    width: 25%;
+}
+.itemTabelaCorpoATM{
+    height: 20px;
+    padding: 1rem;
+}   
+.itemHistoricoATM{
+    padding: 0rem 3.5rem;
+}
+
+.itemTabelaHistorico1{
+    width: 20%;
+    padding: 0.5rem;
+}
+.itemTabelaHistorico2{
+    width: 30%;
+}
+.itemTabelaHistorico3{
+    width: 30%;
+}   
+.mercadosHistoricoATM{
+    padding: 0rem 1rem;
+}
+.calendarioATM{
+    width: 55%;
+    height: 78vh;
+    padding: 3rem 2rem;
+}
+
+
+
+@media (max-width:1536px){
+    .tabelaATM{
+        height: 100%;
+        max-height: 40vh;
+        min-height: 0;
+    }
+  
+}
+@media (max-width: 1025px){
+    .areaMaiorATM{
+        flex-direction: row;
+
+    }
+    .areaATM{
+        width: 110vw;
+    }
+    .btnFazerRelatoATM{
+        font-size: 13px;
+    }
+    .tabelaATM{
+        width: 100%;
+    }
+    .linhaTabelaCabecalhoATM{
+        /* padding: 0.1rem; */
+        gap: 5px;
+    }
+    .calendarioATM{
+        width: 90%;
+    }
+
+
+}
+
+@media (max-width:920px){
+.areaMaiorATM{
+    flex-direction: column;
+    height: 100%;
+    overflow: scroll;
+}
+.areaATM{
+    width: 100%;
+    height: 100%;
+}
+.btnFazerRelatoATM{
+    width: 60%;
+}
+
+
+}
+
+@media (max-width:425px){
+    .containerTabelaATMDois{
+        width: 80vw;
+    }
+    .itemHistoricoATM{
+        padding: 0rem 1rem;
+    }
+    .itemTabelaCorpoHistoricoATM{
+        padding: 0rem 0.2rem;
+    }
+    .btnFazerRelatoATM{
+        width: 70%;
+        height: 60%;
+        gap: 5px;
+    }
+    .calendarioATM{
+        
+    }
+}

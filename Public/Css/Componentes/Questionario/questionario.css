@@ -1,0 +1,195 @@
+@import url('./adicionarQuestionario.css');
+@import url('./atualizarQuestionario.css');
+@import url('./fazerQuestionario.css');
+@import url('../Questao/adicionarQuestao.css');
+
+.crudQuestionario {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.botaoAddQuestionario {
+    font-size: 1rem;
+    font-weight: 600;
+    width: fit-content;
+    padding: 14px 20px;
+    border-radius: 10px;
+    align-self: end;
+    cursor: pointer;
+    border: 2px solid var(--cor-fundo-escuro);
+    transition: ease-in .15s;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: var(--cor-fundo-escuro);
+        color: var(--cor-branco);
+    }
+}
+
+.itemTabelaQuestionario1 {
+    width: 30%;
+}
+
+.itemTabelaQuestionario2 {
+    width: 30%;
+    text-align: center;
+}
+
+.botaoEditarQuestionario,
+.botaoEditarQuestao,
+.botaoVisualizarQuestionario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.botoesOpcaoQuestionario {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 2%;
+    gap: 1rem;
+}
+
+.opcaoQuestionario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 160px;
+    height: 48px;
+    padding: 0 20px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 3px solid var(--cor-fundo-escuro);
+    color: var(--cor-fundo-escuro);
+    transition: 0.2s ease-in;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.opcaoQuestionario:hover {
+    background-color: var(--cor-fundo-escuro);
+    border-color: var(--cor-fundo-escuro);
+    color: var(--cor-branco);
+}
+
+.opcaoQuestao {
+    min-width: 132px;
+    padding: 0 24px;
+}
+
+.tabelaQuestionario {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+
+.tabelaQuestionario .linhaTabelaCorpo {
+    height: 64px;
+    border-bottom: 1px solid rgba(47, 60, 84, 0.08);
+}
+
+.tabelaQuestionario .itemTabelaCorpo {
+    padding: 0.7rem 1rem;
+    vertical-align: middle;
+}
+
+.tabelaQuestionario .itemTabelaCorpo p {
+    margin: 0;
+}
+
+.tabelaQuestionario .linhaTabelaCorpo:nth-child(even) {
+    background-color: rgba(47, 60, 84, 0.04);
+}
+
+.tabelaQuestionario .linhaTabelaCorpo:nth-child(odd) {
+    background-color: transparent;
+}
+
+.tabelaQuestionario .linhaTabelaCorpo:last-child {
+    border-bottom: none;
+}
+
+.wrapperTabelaQuestionario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.botaoEditarQuestionario i,
+.botaoEditarQuestao i,
+.botaoVisualizarQuestionario i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botaoEditarQuestionario svg,
+.botaoEditarQuestao svg,
+.botaoVisualizarQuestionario svg {
+    display: block;
+}
+
+.tabelaQuestionario .textoStatus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabelaQuestionario .btnSwitch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabelaQuestionario .switch {
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .crudQuestionario {
+        padding: 1.5rem;
+    }
+
+    .botoesOpcaoQuestionario {
+        gap: 1%;
+    }
+
+    .opcaoQuestionario {
+        min-width: 140px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .crudQuestionario {
+        padding: 1rem;
+    }
+
+    .botoesOpcaoQuestionario {
+        flex-wrap: wrap;
+        padding-right: 0;
+    }
+
+    .opcaoQuestionario {
+        width: 100%;
+        min-width: 0;
+    }
+}

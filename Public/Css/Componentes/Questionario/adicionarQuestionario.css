@@ -1,0 +1,794 @@
+
+.formularioQuestionario {
+    display: flex;
+    flex-direction: column;
+
+    width: 70vw;
+    max-width: 900px;
+
+    gap: 16px;
+}
+
+.etapasQuestionario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 20px 5px;
+}
+
+.etapaQuestionario {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #98A2B3;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.numeroEtapaQuestionario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background: #98A2B3;
+    color: white;
+}
+
+.etapaAtivaQuestionario,
+.etapaConcluidaQuestionario {
+    color: var(--cor-fundo-escuro);
+}
+
+.etapaAtivaQuestionario .numeroEtapaQuestionario,
+.etapaConcluidaQuestionario .numeroEtapaQuestionario {
+    background: var(--cor-fundo-escuro);
+}
+
+.linhaEtapaQuestionario {
+    width: 10%;
+    height: 1px;
+
+    margin: 0 2%;
+
+    background: #B8C0CC;
+}
+
+
+/* =========================================
+   CONTROLE DAS TELAS
+========================================= */
+
+.telaQuestionario {
+    display: none;
+}
+
+.telaAtivaQuestionario {
+    display: block;
+}
+
+
+/* =========================================
+   CAIXA DAS ETAPAS
+========================================= */
+
+.areaFormularioQuestionario,
+.areaQuestoesQuestionario,
+.areaRevisaoQuestionario {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+    height: 430px;
+
+    padding: 24px;
+
+    background: var(--cor-branco);
+
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   ETAPA 1 - INFORMAÇÕES
+========================================= */
+
+.campoFormularioQuestionario {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.campoFormularioQuestionario label {
+    color: var(--cor-fundo-escuro);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.campoFormularioQuestionario input,
+.campoFormularioQuestionario textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    background: white;
+
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 8px;
+
+    color: var(--cor-fundo-escuro);
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+}
+
+.campoFormularioQuestionario input {
+    height: 44px;
+}
+
+.campoFormularioQuestionario textarea {
+    min-height: 110px;
+
+    resize: none;
+}
+
+.campoFormularioQuestionario input:focus,
+.campoFormularioQuestionario textarea:focus {
+    border-color: var(--cor-fundo-escuro);
+}
+
+.campoFormularioQuestionario input::placeholder,
+.campoFormularioQuestionario textarea::placeholder {
+    color: #98A2B3;
+}
+
+.contadorCaracteresQuestionario {
+    align-self: flex-end;
+
+    color: #667085;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+.areaBotoesQuestionario {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 10px;
+    margin-top: auto;
+
+    padding-top: 5px;
+}
+
+.btnCancelarQuestionario,
+.btnVoltarQuestionario,
+.btnAvancarQuestionario,
+.btnSalvarQuestionario {
+    width: 100px;
+    height: 35px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+/* VOLTAR / CANCELAR */
+
+.btnCancelarQuestionario,
+.btnVoltarQuestionario {
+    background: transparent;
+
+    border: 2px solid var(--cor-fundo-escuro);
+
+    color: var(--cor-fundo-escuro);
+}
+
+.btnCancelarQuestionario:hover,
+.btnVoltarQuestionario:hover {
+    background: #f5f6f8;
+}
+
+
+/* AVANÇAR / SALVAR */
+
+.btnAvancarQuestionario,
+.btnSalvarQuestionario {
+    background: var(--cor-fundo-escuro);
+
+    border: 2px solid var(--cor-fundo-escuro);
+
+    color: white;
+}
+
+.btnAvancarQuestionario:hover,
+.btnSalvarQuestionario:hover {
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   ETAPA 2 - QUESTÕES
+========================================= */
+
+.cabecalhoQuestoesQuestionario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+}
+
+.tituloQuestoesQuestionario {
+    flex: 1;
+}
+
+.cabecalhoQuestoesQuestionario h2 {
+    color: var(--cor-fundo-escuro);
+
+    font-size: 16px;
+}
+
+.cabecalhoQuestoesQuestionario p {
+    color: #667085;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   FILTRO
+========================================= */
+
+.filtroQuestoesQuestionario {
+    position: relative;
+
+    width: 220px;
+}
+
+.botaoAdicionarQuestaoQuestionario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    height: 36px;
+    padding: 0 12px;
+
+    background-color: var(--cor-fundo-escuro);
+
+    border: 1px solid var(--cor-fundo-escuro);
+    border-radius: 7px;
+
+    color: var(--cor-fundo-claro);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.botaoAdicionarQuestaoQuestionario:hover {
+    background-color: transparent;
+    color: var(--cor-fundo-escuro);
+}
+
+.botaoFiltroQuestionario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 9px 12px;
+
+    background: white;
+
+    border: 1px solid var(--cor-fundo-escuro);
+    border-radius: 7px;
+
+    color: var(--cor-fundo-escuro);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.botaoFiltroQuestionario:hover {
+    background: #F8F9FB;
+}
+
+
+/* =========================================
+   OPÇÕES DO FILTRO
+========================================= */
+
+.opcoesFiltroQuestionario {
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    z-index: 20;
+
+    flex-direction: column;
+
+    max-height: 130px;
+    overflow-y: auto;
+
+    padding: 5px;
+
+    background: white;
+
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 8px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.opcoesFiltroQuestionario.abertoQuestionario {
+    display: flex;
+}
+
+.opcaoFiltroQuestionario {
+    padding: 8px;
+
+    background: white;
+
+    border: none;
+    border-radius: 5px;
+
+    color: var(--cor-fundo-escuro);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.opcaoFiltroQuestionario:hover {
+    background: var(--cor-fundo-escuro);
+    color: white;
+}
+
+
+/* SCROLL DO FILTRO */
+
+.opcoesFiltroQuestionario::-webkit-scrollbar {
+    width: 6px;
+}
+
+.opcoesFiltroQuestionario::-webkit-scrollbar-thumb {
+    background: var(--cor-borda-inputs);
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   RESUMO DA SELEÇÃO
+========================================= */
+
+.resumoSelecaoQuestionario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+}
+
+.quantidadeEixosQuestionario {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.quantidadeEixosQuestionario span {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: rgba(47, 60, 84, 0.08);
+
+    color: var(--cor-fundo-escuro);
+
+    font-size: 12px;
+}
+
+.quantidadeEixosQuestionario strong {
+    font-weight: 700;
+}
+
+.quantidadeSelecionadaQuestionario {
+    color: var(--cor-fundo-escuro);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   LISTA DE QUESTÕES
+========================================= */
+
+.listaQuestoesQuestionario {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    min-height: 0;
+    max-height: 42vh;
+    overflow-y: auto;
+
+    background: white;
+
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 8px;
+}
+
+.itemQuestaoQuestionario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    padding: 12px 14px;
+
+    border-bottom: 1px solid #D0D5DD;
+
+    cursor: pointer;
+}
+
+.itemQuestaoQuestionario:last-child {
+    border-bottom: none;
+}
+
+.itemQuestaoQuestionario:hover {
+    background: rgba(47, 60, 84, 0.05);
+}
+
+.textoQuestaoQuestionario {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 8px;
+
+    color: var(--cor-fundo-escuro);
+
+    font-size: 14px;
+}
+
+.textoQuestaoQuestionario span {
+    font-weight: 600;
+}
+
+.checkboxQuestaoQuestionario {
+    width: 19px;
+    height: 19px;
+
+    accent-color: var(--cor-fundo-escuro);
+
+    cursor: pointer;
+}
+
+
+/* SCROLL DAS QUESTÕES */
+
+.listaQuestoesQuestionario::-webkit-scrollbar {
+    width: 6px;
+}
+
+.listaQuestoesQuestionario::-webkit-scrollbar-thumb {
+    background: var(--cor-borda-inputs);
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   ETAPA 3 - REVISÃO
+========================================= */
+
+.areaRevisaoQuestionario h2 {
+    margin: 0;
+
+    color: var(--cor-fundo-escuro);
+
+    font-size: 16px;
+}
+
+.areaRevisaoQuestionario {
+    gap: 10px;
+}
+
+.itemRevisaoQuestionario {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    padding: 8px 10px;
+
+    background: white;
+
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 8px;
+}
+
+.itemRevisaoQuestionario span,
+.itemRevisaoQuestionario label {
+    margin: 0;
+
+    color: #667085;
+
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.itemRevisaoQuestionario p {
+    margin: 0;
+
+    color: var(--cor-fundo-escuro);
+
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+.campoEditavelRevisaoQuestionario {
+    position: relative;
+}
+
+.campoEditavelRevisaoQuestionario input,
+.campoEditavelRevisaoQuestionario textarea {
+    width: 100%;
+
+    padding: 8px 38px 8px 10px;
+
+    background: white;
+
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 8px;
+
+    color: var(--cor-fundo-escuro);
+
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.2;
+
+    outline: none;
+}
+
+.campoEditavelRevisaoQuestionario input {
+    height: 36px;
+}
+
+.campoEditavelRevisaoQuestionario textarea {
+    height: 54px;
+    min-height: 54px;
+
+    resize: none;
+}
+
+.campoEditavelRevisaoQuestionario input:focus,
+.campoEditavelRevisaoQuestionario textarea:focus {
+    border-color: var(--cor-fundo-escuro);
+}
+
+.campoEditavelRevisaoQuestionario input[readonly],
+.campoEditavelRevisaoQuestionario textarea[readonly] {
+    background-color: #F8F9FB;
+    cursor: default;
+}
+
+.campoEditavelRevisaoQuestionario input[readonly]:focus,
+.campoEditavelRevisaoQuestionario textarea[readonly]:focus {
+    border-color: var(--cor-borda-inputs);
+}
+
+.campoEditavelRevisaoQuestionario .campoRevisaoEditandoQuestionario {
+    background-color: #FFFFFF;
+}
+
+.botaoEditarRevisaoQuestionario {
+    position: absolute;
+
+    top: 6px;
+    right: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+.botaoEditarRevisaoQuestionario svg {
+    width: 18px;
+    height: 18px;
+}
+
+.botaoPreviaQuestionario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    width: 240px;
+    height: 40px;
+
+    align-self: center;
+
+    background-color: var(--cor-fundo-escuro);
+
+    border: none;
+    border-radius: 8px;
+
+    color: var(--cor-fundo-claro);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: ease-out 0.15s;
+}
+
+.botaoPreviaQuestionario:hover {
+    background-color: transparent;
+
+    border: 2px solid var(--cor-fundo-escuro);
+
+    color: var(--cor-fundo-escuro);
+}
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media (max-width: 900px) {
+
+    .formularioQuestionario {
+        width: 80vw;
+    }
+
+    .filtroQuestoesQuestionario {
+        width: 35%;
+        min-width: 160px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .formularioQuestionario {
+        width: 88vw;
+    }
+
+
+    /* ETAPAS */
+
+    .etapaQuestionario p {
+        display: none;
+    }
+
+    .linhaEtapaQuestionario {
+        width: 15%;
+    }
+
+
+    /* CAIXAS */
+
+    .areaFormularioQuestionario,
+    .areaQuestoesQuestionario,
+    .areaRevisaoQuestionario {
+        height: 460px;
+
+        padding: 18px;
+    }
+
+
+    /* QUESTÕES */
+
+    .cabecalhoQuestoesQuestionario {
+        align-items: flex-end;
+    }
+
+    .cabecalhoQuestoesQuestionario p {
+        display: none;
+    }
+
+    .filtroQuestoesQuestionario {
+        width: 50%;
+        min-width: 0;
+    }
+
+    .botaoAdicionarQuestaoQuestionario {
+        height: 34px;
+        padding: 0 10px;
+        white-space: nowrap;
+    }
+
+    .resumoSelecaoQuestionario {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .itemQuestaoQuestionario {
+        padding: 12px;
+    }
+
+    .textoQuestaoQuestionario {
+        font-size: 13px;
+    }
+
+
+    /* BOTÕES */
+
+    .areaBotoesQuestionario {
+        gap: 8px;
+    }
+
+    .btnCancelarQuestionario,
+    .btnVoltarQuestionario,
+    .btnAvancarQuestionario,
+    .btnSalvarQuestionario {
+        width: 50%;
+        height: 42px;
+
+        font-size: 14px;
+    }
+
+}

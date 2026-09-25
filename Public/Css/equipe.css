@@ -1,0 +1,523 @@
+.equipeAreaTrabalhoCrud {
+    padding: 20px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*  OVERLAY DO MODAL  */
+
+.equipeModalPrincipalStaff {
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    position: fixed;
+    inset: 0;
+    z-index: 101;
+    background: rgba(0, 0, 0, .65);
+}
+
+.equipeBtnCadastrarStaff {
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-fundo-escuro);
+    font-size: 20px;
+    align-self: end;
+    width: 12%;
+    min-width: 180px;
+    /* evita que o botão fique ilegível em telas estreitas */
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.equipeBtnCadastrarStaff:hover {
+    cursor: pointer;
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-fundo-claro);
+}
+
+.equipeCadastrarModal {
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    max-height: 92vh;
+    margin: auto;
+    background-color: var(--cor-fundo-escuro);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* overflow: hidden; o scroll acontece dentro do .equipeFundoModal */
+}
+
+.equipeTitleModal {
+    color: var(--cor-fundo-claro);
+    font-size: 25px;
+}
+
+.equipeIconeTitleModal {
+    font-size: 20px;
+}
+
+.equipeIconeTrabalho {
+    color: var(--cor-fundo-claro);
+    font-size: 30px;
+}
+
+.equipeInformacaoModal {
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0;
+    /* header nunca encolhe, mesmo se o modal ficar baixo */
+}
+
+.equipeIconeModal {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+.fechar-modal {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-fundo-claro);
+    font-size: 30px;
+}
+
+.equipeFundoModal {
+    background-color: var(--cor-fundo-claro);
+    border-radius: 0px 0px 10px 10px;
+    /* margin: 10px; */
+    flex: 1;
+    min-height: 0;
+    /* necessário para o overflow funcionar dentro de flex */
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    padding: 1rem;
+}
+
+
+.equipeGrupoHorariosModalidade {
+    display: flex;
+    border: 1px solid var(--cor-borda-inputs);
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.equipeGrupoDisponibilidadeHorarios {
+    width: 100%;
+}
+
+.equipeGrupoDisponibilidadeModalidade {
+    width: 100%;
+}
+
+.equipeSelecionarModalidade {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px;
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 8px;
+    outline: none;
+    color: var(--cor-fundo-escuro);
+    width: 100%;
+}
+
+.equipeFundoModal:has(.equipeDadosPessoaisCards:hover) .equipeTextoAtivo {
+    color: var(--cor-fundo-escuro);
+    transition: 0.2s;
+}
+
+
+
+.equipeStepModal {
+    display: flex;
+    align-items: center;
+    color: #666;
+}
+
+.equipeCirculo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.equipeAtivo {
+    background-color: var(--cor-fundo-escuro);
+}
+
+.equipeInativo {
+    background-color: #999;
+}
+
+.equipeTexto,
+.equipeTextoModal {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.equipeLinhaContainer {
+    width: 100px;
+    height: 2px;
+    background-color: #ccc;
+}
+
+/* .equipeTextoInformacaoModal {
+    text-align: center;
+    margin: 20px 0;
+    color: #666;
+} */
+
+.equipeCadastrarStaff {
+    width: 95%;
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 10px;
+    gap: 16px;
+    height: auto;
+    padding: 1rem;
+    flex-wrap: wrap;
+    /* permite empilhar naturalmente em telas estreitas */
+}
+
+.equipeEspacamento1 {
+    background-color: var(--cor-branco);
+    border-radius: 10px;
+    padding: 10px;
+    height: auto;
+    border: 1px solid gray;
+    flex: 1 1 320px;
+    /* cresce/encolhe, mas nunca fica menor que 320px */
+}
+
+.equipeEspacamento2 {
+    background-color: var(--cor-branco);
+    border-radius: 10px;
+    max-width: none;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid gray;
+    margin-bottom: 10px;
+}
+
+.equipeEspacamento3 {
+    background-color: var(--cor-branco);
+    border-radius: 10px;
+    max-width: none;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid gray;
+    height: auto;
+}
+
+.equipeAumentarPerfil {
+    font-size: 15px;
+}
+
+.equipeSelecionarHorarios {
+    display: flex;
+    justify-items: center;
+}
+
+.equipeDisponibilidadeSemana {
+    justify-content: space-between;
+    display: flex;
+}
+
+.equipeCardDisponibilidadePerfil {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1 1 320px;
+}
+
+.equipePerfilsCard {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.equipeTituloCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+.equipeTituloCard h2 {
+    color: var(--cor-fundo-escuro);
+    display: flex;
+    justify-content: center;
+}
+
+.equipeLinhaCard {
+    height: 2px;
+    background-color: #ddd;
+    margin: 5px;
+}
+
+.equipeFotoContainer {
+    position: relative;
+    width: 120px;
+    height: 100px;
+    margin: auto;
+}
+
+.equipeFotoCard {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid #ebebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #74788e;
+}
+
+.equipeFotoCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.equipeAddCard {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--cor-fundo-escuro);
+    color: white;
+    cursor: pointer;
+}
+
+/*  CAMPOS DO FORMULÁRIO  */
+
+.equipeCampoCard {
+    margin-bottom: 15px;
+}
+
+.equipeCampoCard label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--cor-fundo-escuro);
+}
+
+.equipeCampoTelefoneCpf {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    color: var(--cor-fundo-escuro);
+}
+
+.equipeCampoDadosTelefone,
+.equipeCampoDadosCpf {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-weight: bold;
+    gap: 10px;
+}
+
+.equipeInputIcon {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--cor-borda-inputs);
+    border-radius: 6px;
+    padding: 12px;
+    min-height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.equipeInputIcon i {
+    margin-right: 10px;
+    color: var(--cor-fundo-escuro);
+}
+
+.equipeInputIcon input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+}
+
+.equipeMarcacaoObrigatoria {
+    color: #e53935;
+    /* vermelho para chamar atenção */
+    margin-left: 3px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.equipeTituloSegundoCard {
+    font-size: 20px;
+    color: var(--cor-fundo-escuro);
+    margin-bottom: 5px;
+}
+
+.equipeGrupoDisponibilidadeSemana1,
+.equipeGrupoDisponibilidadeSemana2 {
+    display: flex;
+    /* flex-direction: row; */
+    gap: 15px;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    /* margin-top: 10px; */
+}
+
+.equipeGrupoDisponibilidadeHorarios2 {
+    margin-bottom: 10px;
+    color: var(--cor-fundo-escuro);
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+.equipeGrupoDisponibilidadeIdade2 {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.equipeGrupoDisponibilidade label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.equipePerfilItens {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.equipeCor {
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+}
+
+.equipeAdicionarPerfil {
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 3px solid var(--cor-fundo-escuro);
+    background-color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.equipeAdicionarPerfil:hover {
+    background-color: var(--cor-fundo-escuro);
+    color: white;
+}
+
+.equipeBtnAcoesFormularios {
+    display: flex;
+    flex-direction: row-reverse;
+    /* justify-content: flex-start; */
+    /* align-items: center; */
+    gap: 10px;
+    width: 95%;
+    /* alinhado com a largura do .equipeCadastrarStaff */
+    /* margin: 15px auto 0; */
+    /* espaço acima, separando do card branco */
+    padding: 10px;
+}
+
+.equipeSalvarBtn {
+    justify-content: center;
+}
+
+
+
+@media (max-width: 1024px) {
+
+    .equipeCadastrarStaff {
+        flex-direction: column;
+        align-items: stretch;
+        /* garante que os filhos estiquem na largura */
+    }
+
+    .equipeEspacamento1,
+    .equipeEspacamento2,
+    .equipeEspacamento3,
+    .equipeCardDisponibilidadePerfil {
+        /* <- adicionado */
+        width: 100%;
+        min-width: 100%;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+    .equipeCampoTelefoneCpf {
+        flex-direction: column;
+    }
+
+    .equipeDisponibilidadeSemana {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .equipeGrupoDisponibilidade {
+        flex-direction: column;
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .equipeBtnAcoesFormularios {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btnSalvar,
+    .btnCancelar {
+        width: 100%;
+    }
+
+    .equipeContainerModal {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .equipeLinhaContainer {
+        display: none;
+    }
+
+    .equipeBtnCadastrarStaff {
+        width: 100%;
+    }
+
+    .equipeCadastrarModal {
+        width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+        /* em telas de celular, modal ocupa a tela toda */
+        margin: 0;
+    }
+}

@@ -1,0 +1,630 @@
+/* ==========================================================================
+   ESTRUTURA GERAL & LAYOUT CENTRAL
+   ========================================================================== */
+
+.btnCadastroMentor {
+    height: 40px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.areaModalCentral {
+    background-color: var(--cor-fundo-claro);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.areaCentralCadastro {
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex: 1;
+    scrollbar-width: none;
+    overflow-y: auto;
+    background-color: var(--cor-branco);
+    padding: 20px;
+}
+
+.subtituloSuperiorInfo {
+    width: 100%;
+    margin: 12px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cor-placeholder);
+}
+
+.btnAreaMentor {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+
+
+
+/* ==========================================================================
+   STATUS / PASSO A PASSO (PROGRESS STEPPER)
+   ========================================================================== */
+
+.areaStatusCard {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    gap: 12px;
+}
+
+.statusCard1,
+.statusCard2,
+.statusCard3 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cor-placeholder);
+    gap: 4px;
+    transition: color 0.3s ease;
+}
+
+.circuloStatus1,
+.circuloStatus2,
+.circuloStatus3 {
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.statusPronto {
+    display: flex;
+    border: none;
+    background-color: #ccc;
+    width: 1vw;
+    height: 2px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+/* ==========================================================================
+   CARDS DE ETAPAS
+   ========================================================================== */
+
+.cardDadosPessoais,
+.cardDisponibilidade,
+.cardCernes {
+    display: none;
+    color: var(--cor-fundo-escuro);
+    border-radius: 8px;
+    width: 50vh;
+    height: 57vh;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+
+/* mostra só o card do passo atual */
+.areaModalCentral[data-step="1"] .cardDadosPessoais { display: flex; }
+.areaModalCentral[data-step="2"] .cardDisponibilidade { display: flex; }
+.areaModalCentral[data-step="3"] .cardCernes { display: flex; }
+
+.tituloCardMentor {
+    font-size: 22px;
+    color: var(--cor-fundo-escuro);
+    display: flex;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   PROGRESSO — bolinhas, linhas e botões controlados pelo data-step
+   ========================================================================== */
+
+
+.btnAvancarCard {
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+
+.btnVoltarCard {
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.areaModalCentral[data-step="1"] .statusCard1,
+.areaModalCentral[data-step="2"] .statusCard1,
+.areaModalCentral[data-step="2"] .statusCard2,
+.areaModalCentral[data-step="3"] .statusCard1,
+.areaModalCentral[data-step="3"] .statusCard2,
+.areaModalCentral[data-step="3"] .statusCard3 {
+    color: var(--cor-fundo-escuro);
+}
+
+.areaModalCentral[data-step="1"] .circuloStatus1,
+.areaModalCentral[data-step="2"] .circuloStatus1,
+.areaModalCentral[data-step="2"] .circuloStatus2,
+.areaModalCentral[data-step="3"] .circuloStatus1,
+.areaModalCentral[data-step="3"] .circuloStatus2,
+.areaModalCentral[data-step="3"] .circuloStatus3 {
+    background-color: var(--cor-fundo-escuro);
+}
+
+.areaModalCentral[data-step="2"] .statusPronto[data-linha="1"],
+.areaModalCentral[data-step="3"] .statusPronto[data-linha="1"],
+.areaModalCentral[data-step="3"] .statusPronto[data-linha="2"] {
+    background-color: var(--cor-fundo-escuro);
+}
+
+/* botões */
+.areaModalCentral[data-step="1"] .btnVoltarCard {
+    display: none;
+}
+
+.areaModalCentral[data-step="1"] .btnCancelar {
+    display: none;
+}
+
+.areaModalCentral[data-step="2"] .btnCancelar {
+    display: none;
+}
+
+
+.areaModalCentral[data-step="3"] .btnAvancarCard {
+    display: none;
+}
+
+.btnSalvarErro {
+    display: none;
+}
+
+.areaModalCentral[data-step="3"] .btnSalvarErro {
+    display: inline-block;
+}
+
+
+/* ==========================================================================
+   MÍDIAS (FOTO E BANNER)
+   ========================================================================== */
+
+.containerMidias {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 8px;
+}
+
+.fotoContainer,
+.bannerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.areaFoto,
+.areaBanner {
+    position: relative;
+    display: inline-block;
+    margin: 2px;
+}
+
+.fotoPerfil,
+.fotoBanner {
+    border: 2px solid var(--cor-fundo-escuro);
+    display: flex;
+    object-fit: scale-down;
+    width: 80px;
+    height: 80px;
+}
+
+.fotoPerfil {
+    border-radius: 100%;
+}
+
+.fotoBanner {
+    border-radius: 8px;
+}
+
+.btnAdicionarFoto,
+.btnAdicionarBanner {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-branco);
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border: 2px solid var(--cor-branco);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.btnAdicionarFoto {
+    right: 0;
+}
+
+.btnAdicionarBanner {
+    right: -5px;
+}
+
+.btnAdicionarFoto:hover,
+.btnAdicionarBanner:hover {
+    transform: scale(1.1);
+}
+
+.legendaMidia {
+    font-size: 12px;
+    text-align: center;
+    color: var(--cor-fundo-escuro);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   FORMULÁRIOS, INPUTS E GRIDS
+   ========================================================================== */
+
+.inputMentorTitulo {
+    margin: 8px 0;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.cadastroMentorDados {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.socialInputs,
+.inputsDropdown {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.dadoLinkedin,
+.dadoInstagramMentor,
+.dadoTelefoneMentor,
+.dadoCargo,
+.dropHorarios,
+.dropModalidade {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.inputMentorCadastro,
+.inputMentorCadastroSocial {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px;
+    border: 1px solid rgb(170, 170, 170);
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+}
+
+.biografiaInput {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.caixaBiografia {
+    flex: 1;
+    height: 80px;
+    border: 1px solid rgb(170, 170, 170);
+    resize: none;
+    border-radius: 8px;
+    padding: 8px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.qtdCaracter {
+    align-self: flex-start;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--cor-placeholder);
+}
+
+.qtdCaracter.limiteAtingido {
+    color: var(--cor-vermelho);
+    font-weight: bold;
+}
+
+/* Seleções e Checkboxes */
+.selecaoDisponibilidade {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.selecaoDia,
+.areaSelecaoTermo,
+.selecaoTermo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+/* Botões Selecionáveis (Tags / Cernes) */
+.tecnologiaCerne,
+.capitalCerne,
+.empreendedorCerne,
+.gestaoCerne,
+.mercadoCerne {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.btnSelecaoEixo input {
+    display: none;
+}
+
+.btnEstiloVisual {
+    display: inline-block;
+    padding: 12px;
+    background-color: #ffffff;
+    color: var(--cor-fundo-escuro);
+    border-radius: 8px;
+    border: 1px solid rgb(170, 170, 170);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    white-space: nowrap;
+    margin-bottom: 4px;
+}
+
+.btnSelecaoEixo input:checked + .btnEstiloVisual {
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-branco);
+}
+
+/* ==========================================================================
+   DROPDOWNS CUSTOMIZADOS
+   ========================================================================== */
+
+.areaDrop {
+    position: relative;
+    display: inline-block;
+}
+
+.dropNomeEmpresa,
+.dropDisponibilidade {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px;
+    border: 1px solid rgb(170, 170, 170);
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.dropNomeEmpresa {
+    text-align: end;
+    color: var(--cor-fundo-escuro);
+}
+
+.dropDisponibilidade {
+    color: var(--cor-fundo-escuro);
+    text-align: right;
+}
+
+.areaDrop:hover .dropNomeEmpresa,
+.areaDrop:hover .dropDisponibilidade {
+    background-color: #f1f1f1;
+}
+
+.dropConteudo {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid rgb(170, 170, 170);
+    min-width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.itemDadoDrop {
+    color: var(--cor-fundo-escuro);
+    padding: 12px;
+    text-decoration: none;
+    display: flex;
+    gap: 8px;
+}
+
+.areaDrop:hover .dropConteudo {
+    display: block;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+@media (max-width: 1440px) {
+    .dadoLinkedin,
+    .dadoInstagramMentor,
+    .dadoTelefoneMentor,
+    .dadoCargo {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .areaCentralCadastro {
+        flex-wrap: wrap;
+    }
+
+    .areaStatusCard {
+        display: none;
+    }
+
+    .cardDadosPessoais,
+    .cardDisponibilidade,
+    .cardCernes {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .cardDisponibilidade {
+        margin: 16px 0;
+    }
+
+    .statusPronto {
+        width: 8vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .areaCentralCadastro {
+        align-items: center;
+    }
+
+    .areaStatusCard {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .statusCard1,
+    .statusCard2,
+    .statusCard3 {
+        font-size: 11px;
+        gap: 4px;
+    }
+
+    .statusPronto {
+        width: 6vw;
+    }
+
+    .cardDadosPessoais,
+    .cardDisponibilidade,
+    .cardCernes {
+        max-width: 100%;
+    }
+
+    .cardDisponibilidade {
+        margin: 0;
+    }
+
+    .containerMidias {
+        gap: 24px;
+    }
+
+    .fotoPerfil,
+    .fotoBanner {
+        width: 56px;
+        height: 56px;
+    }
+
+    .socialInputs {
+        gap: 0;
+    }
+
+    .inputsDropdown {
+        flex-direction: column;
+    }
+
+    .dropHorarios,
+    .dropModalidade,
+    .dropDisponibilidade,
+    .diasSemana1,
+    .diasSemana2 {
+        width: 100%;
+    }
+
+    .selecaoDisponibilidade,
+    .tecnologiaCerne,
+    .capitalCerne,
+    .empreendedorCerne,
+    .gestaoCerne,
+    .mercadoCerne {
+        flex-direction: column;
+    }
+
+    .btnEstiloVisual {
+        width: 100%;
+        text-align: center;
+        white-space: normal;
+        box-sizing: border-box;
+    }
+
+    .btnAreaMentor {
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+
+    .btnCancelar {
+        margin: 0;
+    }
+
+    .btnModificar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .subtituloSuperiorInfo {
+        font-size: 11px;
+    }
+
+    .tituloCardMentor {
+        font-size: 18px;
+    }
+
+    .statusPronto {
+        width: 10vw;
+    }
+
+    .inputMentorCadastro,
+    .inputMentorCadastroSocial,
+    .dropNomeEmpresa,
+    .dropDisponibilidade {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

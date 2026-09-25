@@ -1,0 +1,1139 @@
+/* CRUD Startups — estilos com escopo exclusivo
+   ─────────────────────────────────────────────────────────────────
+   CONVENÇÃO DE NOMENCLATURA
+   • Classes de layout/aparência: prefixo "cs-" + seletor pai
+     .crudStartups para duplo isolamento.
+   • Estados comportamentais manipulados pelo JS (show, hide,
+     active, inactive): SEM prefixo — o JS os adiciona diretamente
+     e prefixá-los exigiria alterar todas as chamadas classList.
+   • IDs (startupForm, foundersList, addFounderBtn, etc.): mantidos
+     como estão — IDs já são únicos por definição.
+   • Cores: aliases globais de Public/Css/style.css.
+   ─────────────────────────────────────────────────────────────────
+*/
+
+/* ── Raiz do componente: variáveis + layout ─────────────────── */
+.crudStartups {
+  --crud-font-base:     'Urbanist', sans-serif;
+  --crud-font-size-xs:  12px;
+  --crud-font-size-sm:  13px;
+  --crud-font-size-md:  14px;
+  --crud-font-size-lg:  15px;
+  --crud-font-size-xl:  17px;
+  --crud-font-size-2xl: 22px;
+  --crud-font-size-3xl: 26px;
+
+  --crud-radius-modal:  15px;
+  --crud-radius-card:    8px;
+  --crud-radius-input:   8px;
+  --crud-radius-btn:     8px;
+  --crud-gap-columns:   16px;
+
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+  position: relative;
+}
+
+/* fonte do componente sem tocar no body global */
+.crudStartups * {
+  font-family: var(--crud-font-base);
+}
+
+/* ── Trigger Button ─────────────────────────────────────────── */
+.crudStartups .cs-triggerBtn {
+  position: relative;
+  /* top: 2rem; */
+  /* right: 2rem; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  min-width: 120px;
+  width: auto;
+  font-family: var(--crud-font-base);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cor-fundo-escuro);
+  background: transparent;
+  border: 2px solid var(--cor-fundo-escuro);
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 5;
+  max-width: 172.80px;
+  margin-left: auto;
+}
+
+/* estado "hide" adicionado via JS: classList.toggle('hide') */
+.crudStartups .cs-triggerBtn.hide {
+  display: none !important;
+}
+
+/* ── Tabela de Startups ─────────────────────────────────────── */
+.crudStartups .cs-tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--cor-placeholder);
+  border-radius: var(--crud-radius-card);
+  position: relative;
+  top: 80px;
+}
+
+.crudStartups .cs-table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+}
+
+.crudStartups .cs-tableHead {
+  background: var(--cor-fundo-escuro);
+}
+
+.crudStartups .cs-tableHeadCell {
+  padding: 12px 16px;
+  text-align: center;
+  font-size: var(--crud-font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--cor-fundo-claro);
+  white-space: nowrap;
+}
+
+.crudStartups .cs-tableRow {
+  border-top: 1px solid var(--cor-placeholder);
+  transition: background 0.15s;
+}
+
+.crudStartups .cs-tableRow:hover {
+  background: var(--cor-fundo-claro);
+}
+
+.crudStartups .cs-tableCell {
+  padding: 12px 16px;
+  font-size: var(--crud-font-size-sm);
+  color: var(--cor-fundo-escuro);
+  vertical-align: middle;
+}
+
+.crudStartups .cs-tableEmptyState {
+  text-align: center;
+  padding: 28px 16px;
+  color: var(--cor-placeholder);
+  font-weight: 600;
+}
+
+.crudStartups .cs-tableRowEmpty:hover {
+  background: none;
+}
+
+.crudStartups .cs-tableEntity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.crudStartups .cs-tableAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--cor-fundo-claro);
+  border: 1px solid var(--cor-placeholder);
+  flex-shrink: 0;
+}
+
+.crudStartups .cs-col-startup  { width: 22%; }
+.crudStartups .cs-col-setor    { width: 18%; }
+.crudStartups .cs-col-cnpj     { width: 14%; }
+.crudStartups .cs-col-email    { width: 18%; }
+.crudStartups .cs-col-telefone { width: 13%; }
+.crudStartups .cs-col-estagio  { width: 10%; }
+.crudStartups .cs-col-acoes    {width: 90px;}
+
+.crudStartups .cs-tableCell.cs-col-acoes {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.crudStartups .cs-stageBadge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: var(--crud-font-size-xs);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Ideação/MVP: fase inicial */
+.crudStartups .cs-stageBadge--tier1 {
+  background: var(--cor-fundo-claro);
+  color: var(--cor-placeholder);
+}
+
+/* Tração: fase em andamento — reaproveita o azul de "ativo" do resto do componente */
+.crudStartups .cs-stageBadge--tier2 {
+  background: #EEF5FF;
+  color: var(--cor-borda-placeholder);
+}
+
+/* Escala/Consolidação: fase madura */
+.crudStartups .cs-stageBadge--tier3 {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.crudStartups .cs-tableActionBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--cor-placeholder);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.crudStartups .cs-tableActionBtn:focus {
+  outline: none;
+}
+
+.crudStartups .cs-tableActionBtn:focus-visible {
+  outline: 2px solid var(--cor-borda-placeholder);
+  outline-offset: 2px;
+}
+
+.crudStartups .cs-tableActionEdit:hover {
+  background: #dce8f6;
+  color: var(--cor-borda-placeholder);
+}
+
+.crudStartups .cs-tableActionDelete:hover {
+  background: rgba(192, 57, 43, 0.12);
+  color: #c0392b;
+}
+
+.crudStartups .cs-tableActionBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Overlay (wrapper do modal) ─────────────────────────────── */
+/* HTML: class="crudStartupsOverlay" | JS: classList.add('show') */
+.crudStartups .cs-overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  padding: 16px;
+  pointer-events: auto;
+  border-radius: 15px;
+}
+
+/* estado "show" adicionado via JS */
+.crudStartups .cs-overlay.show {
+  display: flex;
+}
+
+/* ── Dialog (container do modal) ────────────────────────────── */
+/* HTML: class="crudStartupsDialog" */
+.crudStartups .cs-dialog {
+  width: 80%;
+  max-width: calc(100% - 32px);
+  max-height: calc(100% - 32px);
+  background: var(--cor-fundo-escuro);
+  border-radius: var(--crud-radius-modal);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Modal header ───────────────────────────────────────────── */
+.crudStartups .cs-modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  flex-shrink: 0;
+}
+
+.crudStartups .cs-headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.crudStartups .cs-headerTitle h1 {
+  font-size: var(--crud-font-size-3xl);
+  font-weight: 700;
+  color: var(--cor-fundo-claro);
+  line-height: 1.2;
+}
+
+.crudStartups .cs-closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.crudStartups .cs-closeBtn:hover {
+  opacity: 0.7;
+}
+
+/* ── Modal content (área de fundo claro) ────────────────────── */
+.crudStartups .cs-modalContent {
+  background: var(--cor-branco);
+  margin: 0 16px 16px;
+  border-radius: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: 24px 20px;
+}
+
+/* ── Stepper ────────────────────────────────────────────────── */
+.crudStartups .cs-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.crudStartups .cs-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crudStartups .cs-stepCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--crud-font-size-lg);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* estilo uniforme do stepper — todas as etapas exibem o estado padrão ativo */
+.crudStartups .cs-stepCircle {
+  background: var(--cor-fundo-escuro);
+}
+
+.crudStartups .cs-stepLabel {
+  font-weight: 700;
+  font-size: var(--crud-font-size-lg);
+  white-space: nowrap;
+  color: var(--cor-fundo-escuro);
+}
+
+.crudStartups .cs-stepLine {
+  width: 80px;
+  border-top: 1px solid var(--cor-fundo-escuro);
+  margin: 0 12px;
+  flex-shrink: 0;
+}
+
+/* ── Subtitle ───────────────────────────────────────────────── */
+.crudStartups .cs-subtitle {
+  text-align: center;
+  font-weight: 600;
+  font-size: var(--crud-font-size-lg);
+  color: var(--cor-placeholder);
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Form principal (id, não classe) ────────────────────────── */
+.crudStartups #startupForm {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* ── Colunas ────────────────────────────────────────────────── */
+.crudStartups .cs-columns {
+  display: flex;
+  justify-content: center;
+  gap: var(--crud-gap-columns);
+  flex: 1;
+}
+
+/* ── Card ───────────────────────────────────────────────────── */
+.crudStartups .cs-card {
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-placeholder);
+  border-radius: var(--crud-radius-card);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-width: 0;
+}
+
+.crudStartups .cs-cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.crudStartups .cs-cardTitle h2 {
+  font-weight: 700;
+  font-size: var(--crud-font-size-2xl);
+  color: var(--cor-fundo-escuro);
+  line-height: 1.2;
+}
+
+.crudStartups .cs-cardDivider {
+  border: none;
+  border-top: 1px solid var(--cor-placeholder);
+  margin-bottom: 16px;
+}
+
+/* ── Photo / avatar ─────────────────────────────────────────── */
+.crudStartups .cs-fileInput {
+  display: none;
+}
+
+.crudStartups .cs-photoRow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.crudStartups .cs-photoUpload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.crudStartups .cs-avatarCircle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--cor-fundo-claro);
+  border: 3px solid var(--cor-fundo-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.crudStartups .cs-avatarCircle:hover {
+  border-color: var(--cor-borda-placeholder);
+}
+
+.crudStartups .cs-avatarPlus {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 24px;
+  height: 24px;
+  background: var(--cor-fundo-escuro);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.crudStartups .cs-photoLabel {
+  font-weight: 700;
+  font-size: var(--crud-font-size-sm);
+  color: var(--cor-fundo-escuro);
+}
+
+/* ── Form groups ────────────────────────────────────────────── */
+.crudStartups .cs-formGroup {
+  margin-bottom: 12px;
+}
+
+.crudStartups .cs-formGroup label {
+  display: block;
+  font-weight: 700;
+  font-size: var(--crud-font-size-xs);
+  color: var(--cor-fundo-escuro);
+  margin-bottom: 5px;
+  letter-spacing: 0.02em;
+}
+
+.crudStartups .cs-formGroup input,
+.crudStartups .cs-formGroup select {
+  width: 100%;
+  height: 38px;
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-placeholder);
+  border-radius: var(--crud-radius-input);
+  padding: 0 12px;
+  font-family: var(--crud-font-base);
+  font-weight: 600;
+  font-size: var(--crud-font-size-md);
+  color: var(--cor-fundo-escuro);
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.crudStartups .cs-formGroup input::placeholder {
+  color: var(--cor-placeholder);
+  font-weight: 500;
+}
+
+.crudStartups .cs-formGroup input:focus,
+.crudStartups .cs-formGroup select:focus {
+  outline: none;
+}
+
+/* :focus-visible em vez de :focus — some ao clicar/digitar com o mouse,
+   mas continua acessível pra quem navega com Tab/teclado. */
+.crudStartups .cs-formGroup input:focus-visible,
+.crudStartups .cs-formGroup select:focus-visible {
+  border-color: var(--cor-borda-placeholder);
+}
+
+/* ── Input com ícone à esquerda ─────────────────────────────── */
+.crudStartups .cs-inputWithIcon {
+  position: relative;
+}
+
+.crudStartups .cs-inputWithIcon .cs-fieldIcon {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.crudStartups .cs-inputWithIcon input {
+  padding-left: 40px;
+}
+
+/* ── Select wrapper ─────────────────────────────────────────── */
+.crudStartups .cs-selectWrapper {
+  position: relative;
+}
+
+.crudStartups .cs-selectWrapper select {
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+.crudStartups .cs-selectWrapper::after {
+  content: '';
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--cor-fundo-escuro);
+  pointer-events: none;
+}
+
+/* ── Select + botão plus ────────────────────────────────────── */
+.crudStartups .cs-selectWithPlus {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.crudStartups .cs-selectWithPlus .cs-selectWrapper {
+  flex: 1;
+}
+
+.crudStartups .cs-plusBtn {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-placeholder);
+  border-radius: var(--crud-radius-input);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cor-fundo-escuro);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.crudStartups .cs-plusBtn:hover {
+  background: #dce8f6;
+}
+
+/* ── Date selects ───────────────────────────────────────────── */
+.crudStartups .cs-dateRow {
+  display: flex;
+  gap: 6px;
+}
+
+.crudStartups .cs-dateRow .cs-selectWrapper {
+  flex: 1;
+}
+
+/* ── Section title & divider ────────────────────────────────── */
+.crudStartups .cs-sectionTitle {
+  display: block;
+  font-weight: 700;
+  font-size: var(--crud-font-size-xl);
+  color: var(--cor-fundo-escuro);
+  margin: 8px 0 10px;
+}
+
+.crudStartups .cs-sectionDivider {
+  border: none;
+  border-top: 1px solid var(--cor-placeholder);
+  margin: 12px 0;
+}
+
+/* ── Tags ───────────────────────────────────────────────────── */
+.crudStartups .cs-tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.crudStartups .cs-tagBtn {
+  padding: 6px 14px;
+  height: 34px;
+  border: 2px solid var(--cor-fundo-escuro);
+  border-radius: var(--crud-radius-input);
+  background: transparent;
+  font-family: var(--crud-font-base);
+  font-weight: 700;
+  font-size: var(--crud-font-size-sm);
+  color: var(--cor-fundo-escuro);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.crudStartups .cs-tagBtn:hover {
+  background: rgba(47, 60, 84, 0.07);
+}
+
+/* estado "active" adicionado via JS: classList.add('active') */
+.crudStartups .cs-tagBtn.active {
+  background: var(--cor-borda-placeholder);
+  color: var(--cor-fundo-claro);
+  border-color: var(--cor-borda-placeholder);
+}
+
+/* ── Founders list ──────────────────────────────────────────── */
+/* Cresce até um teto e passa a rolar internamente a partir daí — adicionar
+   fundadores não empurra mais o card (nem o resto do formulário) para
+   baixo. Ajuste max-height se quiser mostrar mais/menos linhas de uma vez. */
+.crudStartups .cs-foundersList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cor-placeholder) transparent;
+}
+
+.crudStartups .cs-foundersList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.crudStartups .cs-foundersList::-webkit-scrollbar-thumb {
+  background: var(--cor-placeholder);
+  border-radius: 999px;
+}
+
+.crudStartups .cs-foundersList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* criado dinamicamente pelo JS: item.className = 'cs-founderItem' */
+.crudStartups .cs-founderItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cor-fundo-claro);
+  border: 2px solid var(--cor-placeholder);
+  border-radius: var(--crud-radius-btn);
+  padding: 8px 10px;
+  flex-shrink: 0;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.crudStartups .cs-founderItem:hover {
+  border-color: var(--cor-fundo-escuro);
+}
+
+/* criado dinamicamente pelo JS: badge.className = 'cs-founderNumber' */
+.crudStartups .cs-founderNumber {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--cor-fundo-escuro);
+  color: #fff;
+  font-size: var(--crud-font-size-xs);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* criado dinamicamente pelo JS: input.className = 'cs-founderInput' */
+.crudStartups .cs-founderItem .cs-founderInput {
+  flex: 1;
+  min-width: 0;
+  height: 30px !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--cor-fundo-escuro) !important;
+  border-radius: 0 !important;
+  padding: 0 4px !important;
+  box-shadow: none !important;
+}
+
+.crudStartups .cs-founderItem .cs-founderInput:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+.crudStartups .cs-founderItem .cs-founderInput:focus-visible {
+  border-bottom-color: var(--cor-borda-placeholder) !important;
+}
+
+/* criado dinamicamente pelo JS: infoBtn.className = 'cs-founderInfo' —
+   reservado para futuramente abrir um modal com detalhes do fundador */
+.crudStartups .cs-founderInfo {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--cor-placeholder);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.crudStartups .cs-founderInfo:hover {
+  background: #dce8f6;
+  color: var(--cor-borda-placeholder);
+}
+
+/* criado dinamicamente pelo JS: removeBtn.className = 'cs-founderRemove' */
+.crudStartups .cs-founderRemove {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.crudStartups .cs-founderRemove:hover {
+  background: rgba(192, 57, 43, 0.12);
+  color: #c0392b;
+}
+
+.crudStartups .cs-btnAddFounder {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--cor-branco);
+  border: 2px solid var(--cor-fundo-escuro);
+  border-radius: 6px;
+  font-family: var(--crud-font-base);
+  font-weight: 700;
+  font-size: var(--crud-font-size-sm);
+  color: var(--cor-fundo-escuro);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.crudStartups .cs-btnAddFounder:hover {
+  background: #dce8f6;
+}
+
+/* ── Modal de detalhes do fundador (aninhado sobre o modal principal) ──
+   Mesmo padrão visual do modal pai: dialog escuro + header (título e botão
+   de fechar reaproveitados de .cs-modalHeader/.cs-headerTitle/.cs-closeBtn)
+   + área de conteúdo clara. Fica num overlay próprio, empilhado acima do
+   .cs-overlay principal (z-index maior). O clique-fora e o Esc dele têm
+   prioridade sobre os do modal principal — ver comentário no JS, seção
+   ABRIR / FECHAR. ────────────────────────────────────────────────────── */
+.crudStartups .cs-founderOverlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1100;
+  padding: 16px;
+  border-radius: 15px;
+}
+
+.crudStartups .cs-founderOverlay.show {
+  display: flex;
+}
+
+.crudStartups .cs-founderDialog {
+  width: 100%;
+  max-width: 460px;
+  max-height: calc(100% - 32px);
+  background: var(--cor-fundo-escuro);
+  border-radius: var(--crud-radius-modal);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* área clara, mesmas medidas de .cs-modalContent do modal pai */
+.crudStartups .cs-founderModalContent {
+  background: var(--cor-branco);
+  margin: 0 16px 16px;
+  border-radius: 10px;
+  flex: 1;
+  overflow-y: auto;
+  padding: 22px 20px;
+}
+
+.crudStartups .cs-founderDetailHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3px;
+  margin-bottom: 16px;
+}
+
+.crudStartups .cs-founderDetailAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--cor-branco);
+  border: 3px solid var(--cor-fundo-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.crudStartups .cs-founderDetailEyebrow {
+  font-size: var(--crud-font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cor-placeholder);
+}
+
+/* linha com 2 campos lado a lado (e-mail+telefone, linkedin+participação) */
+.crudStartups .cs-founderFormRow {
+  display: flex;
+  gap: 14px;
+}
+
+.crudStartups .cs-founderFormRow .cs-formGroup {
+  flex: 1;
+  min-width: 0;
+}
+
+/* textarea da bio — mesma linguagem visual dos inputs de .cs-formGroup,
+   que por padrão só estiliza input/select (ver seletor logo acima na
+   seção de Dados da Startup) */
+.crudStartups .cs-formGroup textarea {
+  width: 100%;
+  min-height: 72px;
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-placeholder);
+  border-radius: var(--crud-radius-input);
+  padding: 10px 12px;
+  font-family: var(--crud-font-base);
+  font-weight: 600;
+  font-size: var(--crud-font-size-md);
+  color: var(--cor-fundo-escuro);
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.crudStartups .cs-formGroup textarea::placeholder {
+  color: var(--cor-placeholder);
+  font-weight: 500;
+}
+
+.crudStartups .cs-formGroup textarea:focus {
+  outline: none;
+}
+
+.crudStartups .cs-formGroup textarea:focus-visible {
+  border-color: var(--cor-borda-placeholder);
+}
+
+/* nota "isso é só um modelo" reaproveita .cs-infoBox (mesmo visual, já
+   definido logo abaixo) — usada aqui e no modal de Questionário */
+
+/* ── Modal de adicionar questionário (mesmo padrão do modal pai) ────── */
+.crudStartups .cs-questOverlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1100;
+  padding: 16px;
+  border-radius: 15px;
+}
+
+.crudStartups .cs-questOverlay.show {
+  display: flex;
+}
+
+.crudStartups .cs-questDialog {
+  width: 100%;
+  max-width: 420px;
+  max-height: calc(100% - 32px);
+  background: var(--cor-fundo-escuro);
+  border-radius: var(--crud-radius-modal);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* área clara, mesmas medidas de .cs-modalContent do modal pai */
+.crudStartups .cs-questModalContent {
+  background: var(--cor-branco);
+  margin: 0 16px 16px;
+  border-radius: 10px;
+  flex: 1;
+  overflow-y: auto;
+  padding: 22px 20px;
+}
+
+.crudStartups .cs-questForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.crudStartups .cs-questForm .cs-infoBox {
+  margin-top: 14px;
+}
+
+/* rodapé compartilhado pelos modais secundários (fundador, questionário) */
+.crudStartups .cs-secondaryModalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.crudStartups .cs-secondaryModalFooter .cs-btn {
+  min-width: 0;
+  height: 40px;
+  padding: 0 18px;
+  font-size: var(--crud-font-size-md);
+}
+
+/* ── Info box ───────────────────────────────────────────────── */
+.crudStartups .cs-infoBox {
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: #EEF5FF;
+  border: 1px dashed var(--cor-borda-placeholder);
+  border-radius: var(--crud-radius-input);
+  font-size: var(--crud-font-size-sm);
+  color: var(--cor-borda-placeholder);
+  font-weight: 600;
+}
+
+/* ── Modal footer ───────────────────────────────────────────── */
+.crudStartups .cs-modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  /* margin-top: 20px; */
+  padding-top: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.crudStartups .cs-btn {
+  min-width: 120px;
+  height: 44px;
+  padding: 0 24px;
+  border-radius: var(--crud-radius-btn);
+  font-family: var(--crud-font-base);
+  font-weight: 700;
+  font-size: var(--crud-font-size-lg);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.crudStartups .cs-btn.cs-btnCancel {
+  background: transparent;
+  border: 2px solid var(--cor-fundo-escuro);
+  color: var(--cor-fundo-escuro);
+}
+
+.crudStartups .cs-btn.cs-btnCancel:hover {
+  background: rgba(47, 60, 84, 0.07);
+}
+
+.crudStartups .cs-btn.cs-btnSave {
+  background: var(--cor-fundo-escuro);
+  border: 2px solid transparent;
+  color: #fff;
+}
+
+/* fieldset: reset global de borda, escopo no componente.
+   min-width:0 é necessário porque <fieldset> tem um min-width intrínseco no
+   user-agent stylesheet que não encolhe sozinho — era isso que fazia o
+   .cs-founderItem "furar" o card e até o modal em telas estreitas, mesmo
+   com o input configurado para encolher. */
+.crudStartups fieldset {
+  border: none;
+  min-width: 0;
+}
+
+/* ── Responsive — tablet (<1100px) ─────────────────────────── */
+@media (max-width: 1283px) {
+
+  .crudStartups .cs-columns {
+    flex-wrap: wrap;
+  }
+
+  .crudStartups .cs-columns .cs-card {
+    flex: 1 1 calc(50% - 8px);
+    min-width: calc(50% - 8px);
+  }
+
+  .crudStartups .cs-columns .cs-card:last-child {
+    flex: 1 1 100%;
+  }
+
+  .crudStartups .cs-headerTitle h1 {
+    font-size: 22px;
+  }
+
+  .crudStartups .cs-stepLine {
+    width: 50px;
+    margin: 0 8px;
+  }
+}
+
+/* ── Responsive — mobile (<640px) ──────────────────────────── */
+@media (max-width: 639px) {
+  .crudStartups .cs-overlay {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+
+
+  .crudStartups .cs-modalContent {
+    margin: 0 10px 10px;
+    padding: 16px 14px;
+    border-radius: 8px;
+    overflow: auto !important;
+  }
+
+  .crudStartups .cs-columns {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .crudStartups .cs-columns .cs-card {
+    flex: none;
+    width: 100%;
+  }
+
+  .crudStartups .cs-founderOverlay {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+
+  .crudStartups .cs-founderDialog {
+    max-width: 100%;
+    max-height: 80%;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .crudStartups .cs-founderModalContent {
+    margin: 0 10px 10px;
+    padding: 16px 14px;
+    border-radius: 8px;
+  }
+
+  .crudStartups .cs-founderFormRow {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .crudStartups .cs-questOverlay {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+
+  .crudStartups .cs-questDialog {
+    max-width: 100%;
+    max-height: 80%;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .crudStartups .cs-questModalContent {
+    margin: 0 10px 10px;
+    padding: 16px 14px;
+    border-radius: 8px;
+  }
+}

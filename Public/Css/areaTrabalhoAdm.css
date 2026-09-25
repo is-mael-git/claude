@@ -1,0 +1,797 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+.areaTrabalhoAdm{
+  Width: 100%;
+}
+.espaço-menu-adm{
+  display: flex;
+  width: 100%;
+  height: 90%;
+  justify-content: space-between;
+  flex-direction: column;
+
+}
+.visualizacoesMiniDest{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    justify-content: space-between;
+    
+}
+
+.cardIndicador{
+    display: flex;
+    width: 24%;
+    border: solid 1px;
+    border-radius: 10px;
+    gap: 10px;
+    padding: 15px;
+}
+.informacao-card strong {
+    color: #34415c;
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: 700;
+}
+
+
+/* TÍTULO */
+
+.informacao-card span {
+    margin-top: 3px;
+    color: #34415c;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* CRESCIMENTO */
+
+.informacao-card small {
+    margin-top: 4px;
+    color: #6f7d95;
+    font-size: 11px;
+}
+.iconeCard {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    font-size: 22px;
+}
+
+
+/* CORES DOS ÍCONES */
+
+.iconeCard.Startups {
+  background: #a7c9ff;
+  color: #2878e8;
+}
+
+.iconeCard.Mentores {
+  background: #e7f7ec;
+  color: #36a852;
+}
+
+.iconeCard.Reunioes {
+  background: #eee8ff;
+  color: #6838d8;
+}
+
+.iconeCard.Questionarios {
+  background: #fff5d9;
+  color: #c89500;
+}
+
+
+/* INFORMAÇÕES */
+
+.informacaoCardAdm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.caixaMaiorAdm {
+    display:flex;
+    width:100%;
+    height: 85%;
+    gap: 10px;
+
+}
+.espacamento-maior{
+  padding: 5px;
+}
+
+.caixa-2 {
+  flex:1;
+  min-width:0;
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.caixa1-startups-ativas {
+  width: 100%;
+  flex:2;
+}
+
+.titulo-ativas {
+  color: var(--cor-fundo-escuro);
+  font-size: 18px;
+  font-weight: 600;
+}
+.caixaStartupsAtivas{
+    Width: 100%;
+    overflow: visible;
+    flex:1;
+}
+.tabelaListaStartupsAtivas{
+    width:100%;
+    border-radius:5px;
+    border-collapse:collapse;
+}
+.StartupsAtivas{
+    width: 100%;
+    padding: 5px;
+    display: table;
+}
+
+.caixaStartupsAtivas th{
+  width: 100%;
+  background: var(--cor-fundo-escuro);
+  color:#fff;
+  padding:5px;
+  text-align:center;
+}
+
+.caixaStartupsAtivas td{
+  padding:10px;
+  border-bottom:1px solid #d9d9d9;
+}
+
+.tabelaCorpoAdm{
+    width: 100%;
+    height: 65vh;
+    border: 1px solid var(--cor-fundo-escuro);
+    border-radius: 5px;
+}
+
+.icon{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.nome {
+  display: flex;
+  padding: 5px;
+  flex-direction: row;
+}
+
+.nomeicon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+.acoes-adm button {
+  display: flex;
+  gap: 10px;
+  padding: 5px;
+  background-color: var(--cor-fundo-claro);
+  border-radius: 5px;
+  border: 1.5px solid var(--cor-preto);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.acoes-adm button:hover{
+  background: var(--cor-fundo-escuro);
+  color: var(--cor-branco);
+}
+.lista-pendencias-adm{
+  width: 100%;
+  height: 45%;
+  background-color: #7FB31C;
+}
+
+.lista-pendencias {
+  width: 100%;
+  height: 32%;
+  color: var(--cor-branco);
+  background: var(--cor-fundo-escuro);
+  padding: 10px 16px;
+  border-radius: 10px 10px 0 0;
+  font-size: 13px;
+}
+
+.questionarios-adm {
+  width: 100%;
+  height: 100%;
+  background: var(--cor-fundo-claro);
+  border-radius: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.questionario-titulo {
+  color: #ffffff;
+  background: #2c3a4e;
+  padding: 10px 16px;
+  border-radius: 10px 10px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+
+}
+
+.pendencias {
+  height: 80%;
+  width: 100%;
+  border: 1.5px solid black;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.questionario-btns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+
+}
+
+.btn-q {
+  border: 1px solid var(--cor-preto);
+  background: var(--cor-fundo-claro);
+  border-radius: 5px;
+  padding: 6px 18px;
+  border: 1.5px solid var(--cor-preto);
+  font-size: 13px;
+  color: var(--cor-preto);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-q:hover {
+  background: var(--cor-fundo-escuro);
+  color: var(--cor-branco);
+}
+.espacamento-caixa2{
+  padding: 5px;
+}
+
+.nome-questionario {
+  display: flex;
+  border-radius: 5px;
+  width: 97%;
+  margin: auto;
+  justify-content: space-between;
+  background: #2c3a4e;
+  padding: 8px 14px;
+  color: white;
+}
+
+#NomeQuestionario{
+  width: 95%;
+  height: 36%;
+  margin: auto;
+  overflow-y: scroll;
+  border-radius: 10px;
+  border: 1.5px solid var(--cor-preto);
+}
+.questao{
+    display: flex;
+    height: 47%;
+    width: 100%;
+    padding: 10px;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--cor-preto)
+}
+
+.atencao{
+    display: flex;
+    width: 100%;
+    height: 32%;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: 2px solid var(--cor-preto);
+}
+.atencao i{
+  color: var(--cor-amarelo);
+}
+
+.calendarioAdm{
+  width: 50%;
+  height: 94%;
+  background-color: var(--cor-fundo-claro);
+}
+
+.agenda {
+  height: 100%;
+}
+
+.calendario {
+  background: var(--cor-fundo-escuro);
+  width: 100%;
+  color: var(--cor-branco);
+  padding: 10px;
+  display: flex;
+  border-radius: 10px 10px 0px 0px;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.guia-text {
+  display: flex;
+  color: var(--cor-branco);
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.evento-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--cor-branco);
+  gap: 10px;
+}
+.evento-text i{
+  color: var(--cor-amarelo);
+}
+
+.navegacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#mesAno {
+  display: flex;
+  font-size: 18px;
+  color: var(--cor-branco);
+}
+
+#anterior {
+  cursor: pointer;
+}
+
+#proximo {
+  cursor: pointer;
+}
+
+
+#calendario {
+    display: flex;
+    border: 1.5px solid var(--cor-preto);
+    border-radius: 0px 0px 5px 5px;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    padding: 5px;
+    column-gap: .4%;
+    row-gap: 5px;
+    background: var(--cor-fundo-claro);
+}
+
+
+.dia {
+  background: var(--cor-branco);
+  width: 13.92%;
+  height: 18%;
+  justify-content: space-between;
+  border-radius: 5px;
+  display: flex;
+
+  padding: 5px;
+
+}
+
+.semana {
+  color: var(--cor-preto);
+}
+
+.numero {
+  font-weight: bold;
+}
+
+.hoje {
+  border: 2px solid var(--cor-fundo-escuro);
+}
+
+  /* Responsividade notbook e tablet */
+
+
+@media screen and (max-width: 768px){
+
+    .areaTrabalhoAdm{
+         width: 100%;
+         height: 100%;
+    }
+    .caixa-maior{
+        width: 100%;
+        flex-direction:column;
+    }
+
+    .caixa1-startups-ativas{
+        width:100%;
+        height:70px;
+    }
+
+    .caixa-2{
+        width:100%;
+    }
+
+    .questionario-btns{
+        flex-direction:column;
+    }
+
+    .btn-q{
+        width:100%;
+    }
+     .linha-adm{
+        min-width:700px;
+    }
+
+    .linha-separada{
+        overflow-x:auto;
+    }
+    .calendario-adm{
+        overflow-x:auto;
+    }
+    .dia{
+      overflow-x:auto ;
+      flex-direction: column;
+    }
+    .semana{
+       overflow-x:auto;
+    }
+  }
+
+@media (max-width:1024px){
+    .areaTrabalhoAdm{
+      Width: 100%;
+      /* height: 100%; */
+      overflow: scroll;
+    }
+    .menuLateralFundo{
+      width: 100%;
+      height: 100%;
+    }
+    .caixa-maior{
+      width: 100%;
+      height: 100%;
+      flex-direction:column;
+    }
+    .caixa1-startups-ativas{
+        width: 100%;
+        min-height: 40%;
+    }
+    .questionarios-adm {
+      width: 100%;
+      height: 100%;
+    }
+    .caixa-2{
+      width:100%;
+      height: 75%;
+      flex-direction: row;
+    }
+    .lista-pendencias-adm{
+      width: 100%;
+      height: 108%;
+    }
+    
+    .calendario-adm{
+      height: 50%;
+      flex-wrap:wrap;
+
+    }
+    #calendario{
+      height: 82%;
+      flex-wrap:wrap;
+    }
+    .cabecalho-tabela-adm{
+        gap:5%;
+    }
+    .agenda{
+        width:100%;
+        height: 100%;
+    }
+
+    .calendario{
+        flex-wrap:wrap;
+    }
+
+}
+@media (max-width:480px){
+    .areaTrabalhoAdm{
+      Width: 100%;
+      height: 100%;
+      overflow: scroll;
+    }
+    .menuLateralFundo{
+      width: 100%;
+      height: 100%;
+    }
+    .caixa-maior{
+      width: 100%;
+      height: 100%;
+      flex-direction:column;
+    }
+    .caixa1-startups-ativas{
+        width: 100%;
+        min-height: 40%;
+    }
+    .questionarios-adm {
+      width: 100%;
+      height: 100%;
+    }
+    .caixa-2{
+      width:100%;
+      height: 75%;
+      flex-direction: column;
+    }
+    .lista-pendencias-adm{
+      width: 100%;
+      height: 108%;
+    }
+    .linha-separada{
+      overflow-x:auto;
+
+    }
+    
+    .calendario-adm{
+      height: 50%;
+      flex-wrap:wrap;
+
+    }
+    #calendario{
+      height: 82%;
+      flex-wrap:wrap;
+    }
+    .cabecalho-tabela-adm{
+        gap:5%;
+    }
+    .agenda{
+        width:100%;
+        height: 100%;
+    }
+
+    .calendario{
+        flex-wrap:wrap;
+    }
+
+}
+.modalHistoricoReuniao{
+    width: 1250px;
+    height: 600px;
+    overflow:auto;
+
+}
+
+.tabelaReunioes{
+    width: 100%;
+    margin: auto;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.tabelaReunioes thead tr{
+
+    background: var(--cor-fundo-escuro);
+
+}
+
+.tabelaReunioes thead th{
+
+    color: var(--cor-branco);
+    font-size:15px;
+    font-weight:600;
+
+    padding:16px;
+
+    text-align:left;
+
+}
+
+.tabelaReunioes thead th:first-child{
+
+    border-radius:8px 0 0 8px;
+
+}
+
+.tabelaReunioes thead th:last-child{
+
+    border-radius:0 8px 8px 0;
+
+    text-align:center;
+
+}
+
+
+.tabelaReunioes thead tr{
+
+    background: var(--cor-fundo-escuro);
+
+}
+
+.tabelaReunioes thead th{
+
+    color: var(--cor-branco);
+    font-size:15px;
+    font-weight:600;
+
+    padding:16px;
+
+    text-align:left;
+
+}
+
+.tabelaReunioes thead th:first-child{
+
+    border-radius:8px 0 0 8px;
+
+}
+
+.tabelaReunioes thead th:last-child{
+
+    border-radius:0 8px 8px 0;
+
+    text-align:center;
+
+}
+
+.tabelaReunioes tbody{
+    border: 1px solid #2e3547;
+    border-radius: 12px;
+}
+.botaoAcoesAdm{
+
+    width:150px;
+
+    height:38px;
+
+    border:1px solid var(--cor-fundo-escuro);
+
+    border-radius:6px;
+
+    background: var(--cor-branco);
+
+    color: var(--cor-fundo-escuro);
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.botaoAcoesAdm:hover{
+
+    background: var(--cor-fundo-escuro);
+
+    color: var(--cor-branco);
+
+}
+.filtro{
+
+    margin-left:8px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.filtro:hover{
+
+    transform:scale(1.1);
+
+}
+.tabelaReunioes tbody tr{
+
+    transition:.25s;
+
+}
+
+.tabelaReunioes tbody tr:hover{
+
+    background: var(--cor-branco);
+
+}
+.bancoQuestao{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-branco);
+    width: 1100px;
+    height: 35px;
+    border-radius: 10px;
+    padding: 15px;
+    
+}
+.eixoC{
+  margin-left: 400px;
+
+}
+.questaop{
+    width: 1100px;
+    height: 690px;
+    border: 1.5px solid;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+.linhaAddQuest{
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1.5px solid;
+}
+.montarQuest{
+    width: 1200px;
+    height: 780px;
+}
+.menu{
+    display:flex;
+    align-items:center;
+    width:100%;
+}
+
+.menu-item{
+
+    display:flex;
+    align-items:center;
+
+    flex:1;
+}
+.circle{
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:#bdbdbd;
+    color: var(--cor-branco);
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: .3s;
+}
+.line{
+
+    flex:1;
+
+    height:2px;
+
+    background:#bdbdbd;
+
+    margin:0 15px;
+}
+.menu-item.completed .line{
+
+    background:#7FB31C;
+
+}
